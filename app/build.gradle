@@ -18,10 +18,19 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
+            buildConfigField("String", "API_KEY", "\"f059f3812b99fa0629bed8154c1c5e10\"")
+            buildConfigField("String", "IMAGES_BASE_URL", "\"https://image.tmdb.org/t/p/w500\"")
+        }
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
+            buildConfigField("String", "API_KEY", "\"f059f3812b99fa0629bed8154c1c5e10\"")
+            buildConfigField("String", "IMAGES_BASE_URL", "\"https://image.tmdb.org/t/p/w500\"")
         }
     }
 }
@@ -38,8 +47,6 @@ dependencies {
 
 
     implementation rootProject.ext.libraries.pagingComponentVersion
-    implementation rootProject.ext.libraries.roomDB
-    kapt rootProject.ext.apt.roomDBCompiler
     implementation rootProject.ext.libraries.navigationComponentFragment
     implementation rootProject.ext.libraries.navigationComponentUI
 

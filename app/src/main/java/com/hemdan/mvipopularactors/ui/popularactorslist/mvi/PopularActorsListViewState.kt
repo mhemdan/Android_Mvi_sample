@@ -10,7 +10,7 @@ import com.hemdan.mvipopularactors.ui.base.mvi.MviViewState
  */
 data class PopularActorsListViewState(
     val isLoading: Boolean,
-    val tasks: List<ActorModel>,
+    val actors: List<ActorModel>,
     val error: Throwable?
     ) : MviViewState {
 
@@ -18,7 +18,7 @@ data class PopularActorsListViewState(
         fun idle(): PopularActorsListViewState {
             return PopularActorsListViewState(
                 isLoading = false,
-                tasks = emptyList(),
+                actors = emptyList(),
                 error = null
             )
         }

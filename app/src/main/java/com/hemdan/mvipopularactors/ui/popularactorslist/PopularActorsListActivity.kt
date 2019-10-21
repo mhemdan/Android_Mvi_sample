@@ -1,15 +1,16 @@
 package com.hemdan.mvipopularactors
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import com.hemdan.mvipopularactors.ui.base.BaseActivity
 import com.hemdan.mvipopularactors.ui.base.DIBaseActivity
-import dagger.android.AndroidInjector
+import com.hemdan.mvipopularactors.ui.popularactorslist.PopularActorsFragment
+import com.sabbar.seeker.ibtikar.utils.extensions.replaceFragment
 
 class PopularActorsListActivity : DIBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.popular_actors_list_activity)
+
+        replaceFragment(PopularActorsFragment.newInstance(), R.id.fragmentContainer)
     }
 }

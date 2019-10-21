@@ -24,6 +24,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import com.hemdan.mvipopularactors.AppInstance
 import com.hemdan.mvipopularactors.di.component.AppComponent
+import com.hemdan.mvipopularactors.di.component.DaggerAppComponent
 import dagger.android.AndroidInjection
 import dagger.android.support.AndroidSupportInjection
 import dagger.android.support.HasSupportFragmentInjector

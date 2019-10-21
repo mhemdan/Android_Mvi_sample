@@ -7,14 +7,15 @@ import io.reactivex.ObservableTransformer
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.functions.BiFunction
 import io.reactivex.subjects.PublishSubject
+import javax.inject.Inject
 
 /**
  * Created by Mohammed Hemdan on 2019-10-21.
  * Email : mohammed.hemdan.faraj@gmail.com
  * Github : https://github.com/mhemdan
  */
-abstract class BaseViewModel<A : MviAction, I : MviIntent<A>, S : MviViewState, R: MviResult, P : MviActionProcessor<A, R>> :
-    ViewModel(), MviViewModel<I, S> {
+abstract class BaseViewModel<A : MviAction, I : MviIntent<A>, S : MviViewState, R: MviResult>(val processor: MviActionProcessor<A, R>) :
+    ViewModel(), MviViewModel<A, I, S> {
     /**
      * Proxy subject used to keep the stream alive even after the UI gets recycled.
      * This is basically used to keep ongoing events and the last cached State alive
@@ -24,7 +25,6 @@ abstract class BaseViewModel<A : MviAction, I : MviIntent<A>, S : MviViewState, 
     private val statesObservable: Observable<S> = compose()
     private val disposables = CompositeDisposable()
 
-    lateinit var processor: P
 
     abstract fun getIntentFilters(): ObservableTransformer<I, I>
 

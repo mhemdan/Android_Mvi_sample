@@ -10,7 +10,7 @@ import com.hemdan.mvipopularactors.ui.base.mvi.MviResult
  */
 sealed class PopularActorsListResult : MviResult {
     sealed class LoadPopularActorsResult : PopularActorsListResult() {
-        data class Success(val popularActors: List<ActorModel>) : LoadPopularActorsResult()
+        data class Success(val actors: List<ActorModel>) : LoadPopularActorsResult()
         data class Failure(val error: Throwable) : LoadPopularActorsResult()
         object InFlight : LoadPopularActorsResult()
     }

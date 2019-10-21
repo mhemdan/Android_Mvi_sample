@@ -3,7 +3,6 @@ ext {
     navigationComponentVersion = '1.0.0-alpha06'
     rxPermissionsVersion = "0.10.2"
     pagingComponentVersion = "2.1.0"
-    roomDBVersion = "2.1.0-alpha07"
     daggerVersion = "2.22.1"
 
 
@@ -31,7 +30,6 @@ ext {
             navigationComponentUI      : "android.arch.navigation:navigation-ui-ktx:${navigationComponentVersion}",
             rxPermission               : "com.github.tbruyelle:rxpermissions:${rxPermissionsVersion}",
             pagingComponentVersion     : "androidx.paging:paging-runtime:${pagingComponentVersion}",
-            roomDB                     : "androidx.room:room-runtime:${roomDBVersion}",
             dagger                     : "com.google.dagger:dagger:${daggerVersion}",
             daggerAndroid              : "com.google.dagger:dagger-android:${daggerVersion}",
             daggerAndroidSupport       : "com.google.dagger:dagger-android-support:${daggerVersion}",
@@ -47,7 +45,6 @@ ext {
     ]
 
     apt = [
-            roomDBCompiler        : "androidx.room:room-compiler:${roomDBVersion}",
             pagingComponentVersion: "androidx.paging:paging-runtime:${pagingComponentVersion}",
             daggerCompiler        : "com.google.dagger:dagger-compiler:${daggerVersion}",
             daggerProcessor       : "com.google.dagger:dagger-android-processor:${daggerVersion}"

@@ -7,7 +7,7 @@ import com.hemdan.mvipopularactors.ui.base.mvi.MviAction
  * Email : mohammed.hemdan.faraj@gmail.com
  * Github : https://github.com/mhemdan
  */
-sealed class PopularActorsListAction : MviAction {
+sealed class PopularActorsListAction: MviAction {
 
     data class LoadPopularActorsAction(
         val forceUpdate: Boolean
