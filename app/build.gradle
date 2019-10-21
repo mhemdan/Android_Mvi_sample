@@ -1,0 +1,69 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.hemdan.mvipopularactors"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+
+    implementation rootProject.ext.libraries.pagingComponentVersion
+    implementation rootProject.ext.libraries.roomDB
+    kapt rootProject.ext.apt.roomDBCompiler
+    implementation rootProject.ext.libraries.navigationComponentFragment
+    implementation rootProject.ext.libraries.navigationComponentUI
+
+//    rx
+    implementation rootProject.ext.libraries.rxJava
+    implementation rootProject.ext.libraries.rxAndroid
+    implementation rootProject.ext.libraries.rxKotlin
+    implementation rootProject.ext.libraries.rxBinding
+
+    //dagger
+    implementation rootProject.ext.libraries.dagger
+    implementation rootProject.ext.libraries.daggerAndroid
+    implementation rootProject.ext.libraries.daggerAndroidSupport
+    kapt rootProject.ext.apt.daggerCompiler
+    kapt rootProject.ext.apt.daggerProcessor
+
+    //network
+    implementation rootProject.ext.libraries.retrofit
+    implementation rootProject.ext.libraries.okHttp
+    implementation rootProject.ext.libraries.rxJavaRetrofitAdapter
+    implementation rootProject.ext.libraries.moshiJsonConverter
+
+
+    implementation rootProject.ext.libraries.timberLog
+
+
+}
